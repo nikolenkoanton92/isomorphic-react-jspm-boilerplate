@@ -1,0 +1,31 @@
+{
+  "name": "isomorphic-react-jspm-boilerplate",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nikolenkoanton92/isomorphic-react-jspm-boilerplate.git"
+  },
+  "keywords": [
+    "jspm",
+    "react",
+    "isomorphic"
+  ],
+  "author": "Anton Nikoleno <nikolenkoanton92@gmail.com> (http://antonnikolenko.com/)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/nikolenkoanton92/isomorphic-react-jspm-boilerplate/issues"
+  },
+  "homepage": "https://github.com/nikolenkoanton92/isomorphic-react-jspm-boilerplate#readme",
+  "dependencies": {
+    "express": "^4.13.3",
+    "jade": "^1.11.0",
+    "jsx-hook": "^0.14.3",
+    "react": "^0.14.6",
+    "react-dom": "^0.14.6"
+  }
+}
