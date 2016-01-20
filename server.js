@@ -7,8 +7,9 @@ var React = require('react')
 
 require('jsx-hook')()
 
-var indexPage = require('./client/index.jsx')
+var indexPage = require('./public/containers/App/index.jsx')
 
+app.use(express.static('public'))
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
