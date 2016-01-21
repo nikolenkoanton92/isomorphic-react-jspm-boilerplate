@@ -13,9 +13,8 @@ app.use(express.static('public'))
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'jade');
 
-app.get('/', function(req, res) {
+app.get('*', function(req, res) {
   var app = React.createElement(indexPage)
-
   var page = ReactDOMServer.renderToString(app)
   res.render('layout', {
     page: page

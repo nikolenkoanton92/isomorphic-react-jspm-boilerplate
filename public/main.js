@@ -1,5 +1,6 @@
-var React = require('react')
-var App = require('./containers/App/index.jsx!')
-var ReactDOM = require('react-dom')
+import React from 'react'
+import App from './containers/App/index.jsx!'
+import ReactDOM from 'react-dom'
+import 'bootstrap/css/bootstrap.css!'
 
-ReactDOM.render(<App />, document.getElementById('main'))
+ReactDOM.render(React.createElement(App), document.getElementById('main'))
