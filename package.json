@@ -33,6 +33,9 @@
       "baseURL": "public"
     },
     "dependencies": {
+      "bootstrap": "github:twbs/bootstrap@^3.3.6",
+      "css": "github:systemjs/plugin-css@^0.1.20",
+      "jsx": "github:floatdrop/plugin-jsx@^1.1.0",
       "react": "npm:react@^0.14.6",
       "react-dom": "npm:react-dom@^0.14.6"
     },
