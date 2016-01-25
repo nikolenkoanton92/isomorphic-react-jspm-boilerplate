@@ -5,8 +5,8 @@ module.exports = React.createClass({
   render: function() {
     return (
       <div>
-        <Navbar />
-        <h2>Render by server and client</h2>
+      <Navbar />
+      {this.props.children}
       </div>
       )
   }

@@ -22,27 +22,31 @@
   },
   "homepage": "https://github.com/nikolenkoanton92/isomorphic-react-jspm-boilerplate#readme",
   "dependencies": {
-    "express": "^4.13.3",
-    "jade": "^1.11.0",
-    "jsx-hook": "^0.14.3",
-    "react": "^0.14.6",
-    "react-dom": "^0.14.6"
+    "express": "4.13.3",
+    "history": "1.17.0",
+    "jade": "1.11.0",
+    "jsx-hook": "0.14.3",
+    "react": "0.14.6",
+    "react-dom": "0.14.6",
+    "react-router": "1.0.3"
   },
   "jspm": {
     "directories": {
       "baseURL": "public"
     },
     "dependencies": {
-      "bootstrap": "github:twbs/bootstrap@^3.3.6",
-      "css": "github:systemjs/plugin-css@^0.1.20",
-      "jsx": "github:floatdrop/plugin-jsx@^1.1.0",
-      "react": "npm:react@^0.14.6",
-      "react-dom": "npm:react-dom@^0.14.6"
+      "bootstrap": "github:twbs/bootstrap@3.3.6",
+      "css": "github:systemjs/plugin-css@0.1.20",
+      "history": "npm:history@2.0.0-rc2",
+      "jsx": "github:floatdrop/plugin-jsx@1.1.0",
+      "react": "npm:react@0.14.6",
+      "react-dom": "npm:react-dom@0.14.6",
+      "react-router": "npm:react-router@1.0.3"
     },
     "devDependencies": {
-      "babel": "npm:babel-core@^5.8.24",
-      "babel-runtime": "npm:babel-runtime@^5.8.24",
-      "core-js": "npm:core-js@^1.1.4"
+      "babel": "npm:babel-core@5.8.24",
+      "babel-runtime": "npm:babel-runtime@5.8.24",
+      "core-js": "npm:core-js@1.1.4"
     }
   }
 }
