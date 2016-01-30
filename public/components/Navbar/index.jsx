@@ -1,6 +1,5 @@
 var React = require('react')
-var Router = require('react-router')
-var Link = Router.Link
+var page = require('page')
 
 module.exports = React.createClass({
   render: function() {
@@ -8,9 +7,9 @@ module.exports = React.createClass({
       <nav className="navbar navbar-default navbar-static-top">
       <div className="container">
         <ul className="nav navbar-nav">
-            <li><Link to="/">Index</Link></li>
-            <li><Link to="/feature">Feature</Link></li>
-            <li><Link to="/about">About</Link></li>
+        <li><a href='/'>Index</a></li>
+        <li><a href='/feature'>Feature</a></li>
+        <li><a href='/about'>About</a></li>
         </ul>
       </div>
     </nav>

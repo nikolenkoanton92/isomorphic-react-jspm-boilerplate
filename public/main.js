@@ -7,13 +7,44 @@ import About from './containers/About/index.jsx!'
 import Feature from './containers/Feature/index.jsx!'
 import Index from './containers/Index/index.jsx!'
 
-import { Router, Route, IndexRoute } from 'react-router'
-import { createHistory } from 'history'
-const history = createHistory()
+import page from 'page'
 
-import routes from './routes'
+var PageRouter = React.createClass({
+  getInitialState: function() {
+    return {
+      component: <div />
+    }
+  },
+  componentDidMount: function() {
+    var self = this
 
-ReactDOM.render((
-  <Router routes={routes} history={history} />), document.getElementById('main'))
+    this.props.routes.forEach(function(route) {
+
+      var url = route[0];
+      var Component = route[1];
+
+      page(url, function(ctx) {
+        self.setState(({
+          component: <Component params={ctx.params} querystring={ctx.querystring} />
+        }))
+      })
+    })
+
+    page.start()
+  },
+  render: function() {
+    return this.state.component
+  }
+})
+
+let routes = [
+  ['/', Index],
+  ['/about', About],
+  ['/feature', Feature]
+]
+
+ReactDOM.render((<App><PageRouter routes={routes} /></App>), document.getElementById('main'))
+
+
 
 

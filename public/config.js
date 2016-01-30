@@ -21,9 +21,9 @@ System.config({
     "css": "github:systemjs/plugin-css@0.1.20",
     "history": "npm:history@2.0.0-rc2",
     "jsx": "github:floatdrop/plugin-jsx@1.1.0",
+    "page": "npm:page@1.6.4",
     "react": "npm:react@0.14.6",
     "react-dom": "npm:react-dom@0.14.6",
-    "react-router": "npm:react-router@2.0.0-rc5",
     "github:floatdrop/plugin-jsx@1.1.0": {
       "react-tools": "npm:react-tools@0.13.3"
     },
@@ -362,6 +362,10 @@ System.config({
     "npm:os-browserify@0.1.2": {
       "os": "github:jspm/nodelibs-os@0.1.0"
     },
+    "npm:page@1.6.4": {
+      "path-to-regexp": "npm:path-to-regexp@1.2.1",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
     "npm:parse-asn1@5.0.0": {
       "asn1.js": "npm:asn1.js@4.3.0",
       "browserify-aes": "npm:browserify-aes@1.0.5",
@@ -376,6 +380,9 @@ System.config({
     },
     "npm:path-is-absolute@1.0.0": {
       "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:path-to-regexp@1.2.1": {
+      "isarray": "npm:isarray@0.0.1"
     },
     "npm:pbkdf2@3.0.4": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
@@ -411,14 +418,6 @@ System.config({
     },
     "npm:react-dom@0.14.6": {
       "react": "npm:react@0.14.6"
-    },
-    "npm:react-router@2.0.0-rc5": {
-      "child_process": "github:jspm/nodelibs-child_process@0.1.0",
-      "fs": "github:jspm/nodelibs-fs@0.1.2",
-      "history": "npm:history@2.0.0-rc2",
-      "invariant": "npm:invariant@2.2.0",
-      "process": "github:jspm/nodelibs-process@0.1.2",
-      "warning": "npm:warning@2.1.0"
     },
     "npm:react-tools@0.13.3": {
       "buffer": "github:jspm/nodelibs-buffer@0.1.0",
