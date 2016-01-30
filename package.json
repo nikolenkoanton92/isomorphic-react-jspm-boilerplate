@@ -39,9 +39,9 @@
       "css": "github:systemjs/plugin-css@0.1.20",
       "history": "npm:history@2.0.0-rc2",
       "jsx": "github:floatdrop/plugin-jsx@1.1.0",
+      "page": "npm:page@1.6.4",
       "react": "npm:react@0.14.6",
-      "react-dom": "npm:react-dom@0.14.6",
-      "react-router": "npm:react-router@1.0.3"
+      "react-dom": "npm:react-dom@0.14.6"
     },
     "devDependencies": {
       "babel": "npm:babel-core@5.8.24",
