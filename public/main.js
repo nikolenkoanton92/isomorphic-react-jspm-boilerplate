@@ -9,29 +9,30 @@ import Index from './containers/Index/index.jsx!'
 
 import page from 'page'
 
-var PageRouter = React.createClass({
+const PageRouter = React.createClass({
   getInitialState: function() {
     return {
       component: <div />
     }
   },
   componentDidMount: function() {
-    var self = this
+    const self = this
 
     this.props.routes.forEach(function(route) {
-
-      var url = route[0]
-      var Component = route[1];
-
-      page(url, function(ctx) {
-        self.setState({
-          component: <Component params={ctx.params} querystring={ctx.querystring} />
-        })
-      })
-
+      self.handleNewPage(route[0], route[1])
     })
 
     page.start()
+  },
+  handleNewPage: function(url, Component) {
+    const self = this
+
+    page(url, function(ctx) {
+      self.setState({
+        component: <Component params={ctx.params} querystring={ctx.querystring} />
+      })
+    })
+
   },
   render: function() {
     return this.state.component
