@@ -20,14 +20,15 @@ var PageRouter = React.createClass({
 
     this.props.routes.forEach(function(route) {
 
-      var url = route[0];
+      var url = route[0]
       var Component = route[1];
 
       page(url, function(ctx) {
-        self.setState(({
+        self.setState({
           component: <Component params={ctx.params} querystring={ctx.querystring} />
-        }))
+        })
       })
+
     })
 
     page.start()
