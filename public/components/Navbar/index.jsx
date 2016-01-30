@@ -1,5 +1,4 @@
 var React = require('react')
-var page = require('page')
 
 module.exports = React.createClass({
   render: function() {
