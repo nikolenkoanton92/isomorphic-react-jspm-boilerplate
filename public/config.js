@@ -24,6 +24,7 @@ System.config({
     "page": "npm:page@1.6.4",
     "react": "npm:react@0.14.6",
     "react-dom": "npm:react-dom@0.14.6",
+    "xhr": "npm:xhr@2.2.0",
     "github:floatdrop/plugin-jsx@1.1.0": {
       "react-tools": "npm:react-tools@0.13.3"
     },
@@ -273,6 +274,9 @@ System.config({
     "npm:fbjs@0.6.1": {
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
+    "npm:for-each@0.3.2": {
+      "is-function": "npm:is-function@1.0.1"
+    },
     "npm:glob@5.0.15": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
       "events": "github:jspm/nodelibs-events@0.1.1",
@@ -285,6 +289,9 @@ System.config({
       "path-is-absolute": "npm:path-is-absolute@1.0.0",
       "process": "github:jspm/nodelibs-process@0.1.2",
       "util": "github:jspm/nodelibs-util@0.1.0"
+    },
+    "npm:global@4.3.0": {
+      "process": "npm:process@0.5.2"
     },
     "npm:graceful-fs@4.1.2": {
       "assert": "github:jspm/nodelibs-assert@0.1.0",
@@ -326,6 +333,10 @@ System.config({
     },
     "npm:invariant@2.2.0": {
       "loose-envify": "npm:loose-envify@1.1.0",
+      "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:is-function@1.0.1": {
+      "events": "github:jspm/nodelibs-events@0.1.1",
       "process": "github:jspm/nodelibs-process@0.1.2"
     },
     "npm:jstransform@10.1.0": {
@@ -374,6 +385,10 @@ System.config({
       "evp_bytestokey": "npm:evp_bytestokey@1.0.0",
       "pbkdf2": "npm:pbkdf2@3.0.4",
       "systemjs-json": "github:systemjs/plugin-json@0.1.0"
+    },
+    "npm:parse-headers@2.0.1": {
+      "for-each": "npm:for-each@0.3.2",
+      "trim": "npm:trim@0.0.1"
     },
     "npm:path-browserify@0.0.0": {
       "process": "github:jspm/nodelibs-process@0.1.2"
@@ -485,6 +500,14 @@ System.config({
     "npm:warning@2.1.0": {
       "loose-envify": "npm:loose-envify@1.1.0",
       "process": "github:jspm/nodelibs-process@0.1.2"
+    },
+    "npm:xhr@2.2.0": {
+      "global": "npm:global@4.3.0",
+      "is-function": "npm:is-function@1.0.1",
+      "once": "npm:once@1.1.1",
+      "parse-headers": "npm:parse-headers@2.0.1",
+      "process": "github:jspm/nodelibs-process@0.1.2",
+      "xtend": "npm:xtend@4.0.1"
     }
   }
 });

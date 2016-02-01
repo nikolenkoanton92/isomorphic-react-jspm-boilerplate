@@ -32,7 +32,8 @@
     "passport-local": "1.0.0",
     "react": "0.14.6",
     "react-dom": "0.14.6",
-    "react-router": "1.0.3"
+    "react-router": "1.0.3",
+    "xhr": "^2.2.0"
   },
   "jspm": {
     "directories": {
@@ -45,7 +46,8 @@
       "jsx": "github:floatdrop/plugin-jsx@1.1.0",
       "page": "npm:page@1.6.4",
       "react": "npm:react@0.14.6",
-      "react-dom": "npm:react-dom@0.14.6"
+      "react-dom": "npm:react-dom@0.14.6",
+      "xhr": "npm:xhr@^2.2.0"
     },
     "devDependencies": {
       "babel": "npm:babel-core@5.8.24",
