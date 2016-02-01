@@ -1,5 +1,6 @@
 var express = require('express')
 var router = express.Router()
+var passport = require('passport')
 
 require('jsx-hook')()
 
@@ -39,4 +40,14 @@ router.get('/login', function(req, res) {
   })
 })
 
+router.post('/login', passport.authenticate('local'), function(req, res) {
+  res.json(req.user)
+})
+
+router.post('/logout', function(req, res) {
+  req.logout()
+  res.json({
+    logout: true
+  })
+})
 module.exports = router
