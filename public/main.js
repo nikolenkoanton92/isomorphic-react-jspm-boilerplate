@@ -6,6 +6,7 @@ import 'bootstrap/css/bootstrap.css!'
 import About from './containers/About/index.jsx!'
 import Feature from './containers/Feature/index.jsx!'
 import Index from './containers/Index/index.jsx!'
+import Login from './containers/Login/index.jsx!'
 
 import page from 'page'
 
@@ -42,7 +43,8 @@ const PageRouter = React.createClass({
 let routes = [
   ['/', Index],
   ['/about', About],
-  ['/feature', Feature]
+  ['/feature', Feature],
+  ['/login', Login]
 ]
 
 ReactDOM.render((<App><PageRouter routes={routes} /></App>), document.getElementById('main'))

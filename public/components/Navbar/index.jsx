@@ -6,9 +6,10 @@ module.exports = React.createClass({
       <nav className="navbar navbar-default navbar-static-top">
       <div className="container">
         <ul className="nav navbar-nav">
-        <li><a href='/'>Index</a></li>
-        <li><a href='/feature'>Feature</a></li>
-        <li><a href='/about'>About</a></li>
+          <li><a href='/'>Index</a></li>
+          <li><a href='/feature'>Feature</a></li>
+          <li><a href='/about'>About</a></li>
+          <li><a href='/login'>Login</a></li>
         </ul>
       </div>
     </nav>
