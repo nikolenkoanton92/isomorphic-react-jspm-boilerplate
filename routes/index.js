@@ -11,6 +11,23 @@ var IndexPage = require('../public/containers/Index/index.jsx')
 var AboutPage = require('../public/containers/About/index.jsx')
 var FeaturePage = require('../public/containers/Feature/index.jsx')
 var LoginPage = require('../public/containers/Login/index.jsx')
+var DashboardPage = require('../public/containers/Dashboard/index.jsx')
+
+function isUserNotLogged(req, res, next) {
+  if (req.user) {
+    res.redirect('/dashboard')
+  } else {
+    next()
+  }
+}
+
+function isUserLogged(req, res, next) {
+  if (req.user) {
+    next()
+  } else {
+    res.redirect('/login')
+  }
+}
 
 router.get('/', function(req, res) {
   var page = ReactDOMServer.renderToString(React.createElement(IndexPage))
@@ -33,14 +50,21 @@ router.get('/feature', function(req, res) {
   })
 })
 
-router.get('/login', function(req, res) {
+router.get('/dashboard', isUserLogged, function(req, res) {
+  var Page = ReactDOMServer.renderToString(React.createElement(DashboardPage))
+  res.render('layout', {
+    page: page
+  })
+})
+
+router.get('/login', isUserNotLogged, function(req, res) {
   var page = ReactDOMServer.renderToString(React.createElement(LoginPage))
   res.render('layout', {
     page: page
   })
 })
 
-router.post('/login', passport.authenticate('local'), function(req, res) {
+router.post('/login', isUserNotLogged, passport.authenticate('local'), function(req, res) {
   res.json(req.user)
 })
 

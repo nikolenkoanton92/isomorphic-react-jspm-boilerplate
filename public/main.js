@@ -7,6 +7,7 @@ import About from './containers/About/index.jsx!'
 import Feature from './containers/Feature/index.jsx!'
 import Index from './containers/Index/index.jsx!'
 import Login from './containers/Login/index.jsx!'
+import Dashboard from './containers/Dashboard/index.jsx!'
 
 import page from 'page'
 
@@ -44,7 +45,8 @@ let routes = [
   ['/', Index],
   ['/about', About],
   ['/feature', Feature],
-  ['/login', Login]
+  ['/login', Login],
+  ['/dashboard', Dashboard]
 ]
 
 ReactDOM.render((<App><PageRouter routes={routes} /></App>), document.getElementById('main'))
