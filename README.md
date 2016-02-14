@@ -6,8 +6,9 @@
 - [x] [JSPM](http://jspm.io/)
 - [x] [Express](http://expressjs.com/)
 - [x] [React](https://facebook.github.io/react/)
+- [x] [Baobab](https://github.com/Yomguithereal/baobab)
 - [ ] [Babel](https://babeljs.io/)
-- [ ] [Page.js](https://github.com/visionmedia/page.js/) ~~[x] [React Router](https://github.com/rackt/react-router)~~
+- [x] [React Router](https://github.com/rackt/react-router)
 - [ ] Authentication [Passportjs](http://passportjs.org/)
 - [x] [Bootstrap](http://getbootstrap.com/)
 
