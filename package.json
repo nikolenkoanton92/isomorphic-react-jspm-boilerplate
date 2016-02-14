@@ -22,17 +22,18 @@
   },
   "homepage": "https://github.com/nikolenkoanton92/isomorphic-react-jspm-boilerplate#readme",
   "dependencies": {
+    "baobab": "2.3.3",
+    "baobab-react": "1.0.1",
     "body-parser": "1.14.2",
     "express": "4.13.3",
     "express-session": "1.13.0",
-    "history": "1.17.0",
     "jade": "1.11.0",
     "jsx-hook": "0.14.3",
     "passport": "0.3.2",
     "passport-local": "1.0.0",
     "react": "0.14.6",
     "react-dom": "0.14.6",
-    "react-router": "1.0.3",
+    "react-router": "2.0.0",
     "xhr": "^2.2.0"
   },
   "jspm": {
@@ -40,13 +41,14 @@
       "baseURL": "public"
     },
     "dependencies": {
+      "baobab": "npm:baobab@2.3.3",
+      "baobab-react": "npm:baobab-react@1.0.1",
       "bootstrap": "github:twbs/bootstrap@3.3.6",
       "css": "github:systemjs/plugin-css@0.1.20",
-      "history": "npm:history@2.0.0-rc2",
       "jsx": "github:floatdrop/plugin-jsx@1.1.0",
-      "page": "npm:page@1.6.4",
       "react": "npm:react@0.14.6",
       "react-dom": "npm:react-dom@0.14.6",
+      "react-router": "npm:react-router@2.0.0",
       "xhr": "npm:xhr@^2.2.0"
     },
     "devDependencies": {
