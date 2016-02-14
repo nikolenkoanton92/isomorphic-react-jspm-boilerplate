@@ -7,11 +7,6 @@ require('jsx-hook')()
 var ReactDOMServer = require('react-dom/server')
 var React = require('react')
 
-var IndexPage = require('../public/containers/Index/index.jsx')
-var AboutPage = require('../public/containers/About/index.jsx')
-var FeaturePage = require('../public/containers/Feature/index.jsx')
-var LoginPage = require('../public/containers/Login/index.jsx')
-var DashboardPage = require('../public/containers/Dashboard/index.jsx')
 
 function isUserNotLogged(req, res, next) {
   if (req.user) {
@@ -29,29 +24,35 @@ function isUserLogged(req, res, next) {
   }
 }
 
-router.get('/', function(req, res) {
-  var page = ReactDOMServer.renderToString(React.createElement(IndexPage))
-  res.render('layout', {
-    page: page
-  })
+router.get('/', function(req, res, next) {
+  var tree = {
+    title: 'Index Page'
+  }
+
+  res.locals.tree = tree
+  next()
 })
 
-router.get('/about', function(req, res) {
-  var page = ReactDOMServer.renderToString(React.createElement(AboutPage))
-  res.render('layout', {
-    page: page
-  })
+router.get('/about', function(req, res, next) {
+
+  var tree = {
+    title: 'About Page'
+  }
+  res.locals.tree = tree
+  next()
 })
 
-router.get('/feature', function(req, res) {
-  var page = ReactDOMServer.renderToString(React.createElement(FeaturePage))
-  res.render('layout', {
-    page: page
-  })
+router.get('/feature', function(req, res, next) {
+  var tree = {
+    title: 'Feature Page',
+    featureList: ['JSPM', 'Express', 'React', 'Babel', 'React Router', 'Authentication', 'Bootstrap']
+  }
+  res.locals.tree = tree
+  next()
 })
 
 router.get('/dashboard', isUserLogged, function(req, res) {
-  var Page = ReactDOMServer.renderToString(React.createElement(DashboardPage))
+  var page = ReactDOMServer.renderToString(React.createElement(DashboardPage))
   res.render('layout', {
     page: page
   })

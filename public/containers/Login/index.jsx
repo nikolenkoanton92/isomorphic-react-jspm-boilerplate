@@ -8,9 +8,7 @@ module.exports = React.createClass({
       password: ''
     }
   },
-  componentDidMount: function() {
-    this.page = require('page')
-  },
+  componentDidMount: function() {},
   handleUsernameChange: function(event) {
     this.setState({
       username: event.target.value

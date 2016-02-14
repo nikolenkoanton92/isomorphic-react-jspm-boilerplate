@@ -1,11 +1,23 @@
 var express = require('express')
 var path = require('path')
 var app = express()
+
+require('jsx-hook')()
 var routes = require('./routes/index')
 var bodyParser = require('body-parser')
 var passport = require('passport')
 var LocalStrategy = require('passport-local').Strategy
 var session = require('express-session')
+
+var React = require('react')
+var Router = require('react-router')
+var match = Router.match
+var RouterContext = Router.RouterContext
+var ReactDOMServer = require('react-dom/server')
+var clientRoutes = require('./public/routes.jsx')
+
+var Root = require('baobab-react/wrappers').Root
+var Baobab = require('baobab')
 
 var user = {
   id: 1,
@@ -55,7 +67,45 @@ passport.deserializeUser(function(id, done) {
   }
 })
 
+app.get('/getData', function(req, res) {
+  var fakeData = 'Hello From servet to client'
+  res.json({
+    data: fakeData
+  })
+})
+
 app.use('/', routes)
+
+app.get('*', function(req, res) {
+
+  match({
+    routes: clientRoutes,
+    location: req.url
+  }, function(error, redirectLocation, renderProps) {
+    if (error) {
+      res.status(500).send(error.message)
+    } else if (redirectLocation) {
+      res.redirect(302, redirectLocation.pathname + redirectLocation.search)
+    } else if (renderProps) {
+      var props = {
+        tree: new Baobab(res.locals.tree)
+      }
+
+      var page = ReactDOMServer.renderToString(React.createElement(Root, props, React.createElement(RouterContext, renderProps)))
+      res.render('layout', {
+        page: page,
+        appTree: 'window._BAOBAB_TREE_=' + JSON.stringify(props)
+      })
+
+    } else {
+      res.status(404).send('Not Found')
+    }
+  })
+})
+
+
+
+
 
 
 app.listen(4000, function() {
