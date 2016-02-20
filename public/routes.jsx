@@ -9,14 +9,6 @@ var Router = require('react-router')
 var Route = Router.Route
 var IndexRoute = Router.IndexRoute
 
-// var tree
-// if (typeof window !== 'undefined') {
-//   console.log('-----------------------')
-//   tree = require('./state')
-// } else {
-//   tree = ''
-// }
-
 module.exports = (
   <Route name="Home" path="/" component={App} >
    <IndexRoute name="Index" component={Index} />

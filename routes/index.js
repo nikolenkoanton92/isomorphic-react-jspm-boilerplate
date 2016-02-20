@@ -4,11 +4,8 @@ var passport = require('passport')
 
 require('jsx-hook')()
 
-var ReactDOMServer = require('react-dom/server')
-var React = require('react')
-
-
 function isUserNotLogged(req, res, next) {
+  console.log('Come is User Not Logged')
   if (req.user) {
     res.redirect('/dashboard')
   } else {
@@ -17,6 +14,7 @@ function isUserNotLogged(req, res, next) {
 }
 
 function isUserLogged(req, res, next) {
+  console.log('Come is User Logged')
   if (req.user) {
     next()
   } else {
@@ -24,45 +22,80 @@ function isUserLogged(req, res, next) {
   }
 }
 
+function renderPage(req, res, next, tree) {
+  if (req.get('Content-Type') === 'application/json') {
+    res.json(tree)
+  } else {
+    res.locals.tree = tree
+    next()
+  }
+}
+
 router.get('/', function(req, res, next) {
+  var accept = req.accepts(['html', 'json'])
+
   var tree = {
     title: 'Index Page'
   }
-
-  res.locals.tree = tree
-  next()
+  renderPage(req, res, next, tree)
 })
 
 router.get('/about', function(req, res, next) {
-
   var tree = {
     title: 'About Page'
   }
-  res.locals.tree = tree
-  next()
+  renderPage(req, res, next, tree)
 })
 
 router.get('/feature', function(req, res, next) {
+
   var tree = {
     title: 'Feature Page',
-    featureList: ['JSPM', 'Express', 'React', 'Babel', 'React Router', 'Authentication', 'Bootstrap']
+    featureList: [{
+      id: 1,
+      name: 'JSPM'
+    }, {
+      id: 2,
+      name: 'Express'
+    }, {
+      id: 3,
+      name: 'React'
+    }, {
+      id: 4,
+      name: 'Babel'
+    }, {
+      id: 5,
+      name: 'React'
+    }, {
+      id: 6,
+      name: 'Router'
+    }, {
+      id: 7,
+      name: 'Authentication'
+    }, {
+      id: 8,
+      name: 'Bootstrap'
+    }]
   }
-  res.locals.tree = tree
-  next()
+  renderPage(req, res, next, tree)
 })
 
-router.get('/dashboard', isUserLogged, function(req, res) {
-  var page = ReactDOMServer.renderToString(React.createElement(DashboardPage))
-  res.render('layout', {
-    page: page
-  })
+router.get('/dashboard', isUserLogged, function(req, res, next) {
+
+  var tree = {
+    title: 'Dashboard Page'
+  }
+
+  renderPage(req, res, next, tree)
 })
 
-router.get('/login', isUserNotLogged, function(req, res) {
-  var page = ReactDOMServer.renderToString(React.createElement(LoginPage))
-  res.render('layout', {
-    page: page
-  })
+
+router.get('/login', isUserNotLogged, function(req, res, next) {
+  console.log('Come to login page')
+  var tree = {
+    title: 'Login Page'
+  }
+  renderPage(req, res, next, tree)
 })
 
 router.post('/login', isUserNotLogged, passport.authenticate('local'), function(req, res) {
