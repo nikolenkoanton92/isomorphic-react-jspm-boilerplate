@@ -1,14 +1,47 @@
 var React = require('react')
+var mixins = require('baobab-react/mixins')
 var xhr = require('xhr')
+var actions = require('../../actions')
 
 module.exports = React.createClass({
+  mixins: [mixins.branch],
+  cursors: {
+    title: ['title']
+  },
+  contextTypes: {
+    router: React.PropTypes.object
+  },
+  actions: {
+    authUser: actions.authUser,
+    changeTitle: actions.changeTitle
+  },
   getInitialState: function() {
     return {
       username: '',
       password: ''
     }
   },
-  componentDidMount: function() {},
+  componentDidMount: function() {
+    this.fetchLoginData()
+  },
+  fetchLoginData: function() {
+    var self = this
+    xhr({
+      method: 'GET',
+      uri: '/login',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }, function(err, resp, body) {
+      console.log(err)
+      if (err) {
+        return false
+      } else {
+        var data = JSON.parse(body)
+        self.actions.changeTitle(data.title)
+      }
+    })
+  },
   handleUsernameChange: function(event) {
     this.setState({
       username: event.target.value
@@ -41,7 +74,8 @@ module.exports = React.createClass({
       if (err || body === 'Unauthorized') {
         return false
       } else {
-        self.page.redirect('/')
+        self.actions.authUser(body.user)
+        self.context.router.push('/dashboard')
       }
     })
 
@@ -53,7 +87,7 @@ module.exports = React.createClass({
         <div className="col-md-4 col-md-offset-4">
           <div className="panel panel-default">
             <div className="panel-heading">
-              <h3 className="panel-title">Login</h3>
+              <h3 className="panel-title">{this.state.title}</h3>
             </div>
             <div className="panel-body">
               <form onSubmit={this.handleSubmitLogin}>
