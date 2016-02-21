@@ -7,8 +7,9 @@ import routes from './routes.jsx!'
 import { Root } from 'baobab-react/wrappers'
 import state from './state'
 
+var tree = window.tree = state(window._BAOBAB_TREE_.tree)
 
-ReactDOM.render(<Root tree={state }><Router routes={routes} history={browserHistory} /></Root>, document.getElementById('main'))
+ReactDOM.render(<Root tree={tree }><Router routes={routes} history={browserHistory} /></Root>, document.getElementById('main'))
 
 
 

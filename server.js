@@ -18,6 +18,7 @@ var clientRoutes = require('./public/routes.jsx')
 
 var Root = require('baobab-react/wrappers').Root
 var Baobab = require('baobab')
+var Tree = require('./public/state')
 
 var user = {
   id: 1,
@@ -87,8 +88,11 @@ app.get('*', function(req, res) {
     } else if (redirectLocation) {
       res.redirect(302, redirectLocation.pathname + redirectLocation.search)
     } else if (renderProps) {
+
+      var tree = Tree(res.locals.tree)
+
       var props = {
-        tree: new Baobab(res.locals.tree)
+        tree: tree
       }
 
       var page = ReactDOMServer.renderToString(React.createElement(Root, props, React.createElement(RouterContext, renderProps)))

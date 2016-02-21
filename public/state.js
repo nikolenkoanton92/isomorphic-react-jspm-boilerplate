@@ -1,5 +1,17 @@
 var Baobab = require('baobab')
 
-module.exports = new Baobab(
-  window._BAOBAB_TREE_.tree
-)
+//rename to store
+
+module.exports = function Tree(data) {
+  var tree = new Baobab({
+    user: {},
+    title: {},
+    featureList: []
+  })
+
+  for (var key in data) {
+    tree.set(key, data[key])
+  }
+
+  return tree
+}
