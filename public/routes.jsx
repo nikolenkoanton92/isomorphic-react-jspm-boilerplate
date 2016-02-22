@@ -5,6 +5,8 @@ var Feature = require('./containers/Feature/index.jsx!')
 var About = require('./containers/About/index.jsx!')
 var Dashboard = require('./containers/Dashboard/index.jsx!')
 var Login = require('./containers/Login/index.jsx!')
+var NotFound = require('./containers/NotFound/index.jsx!')
+
 var Router = require('react-router')
 var Route = Router.Route
 var IndexRoute = Router.IndexRoute
@@ -43,6 +45,7 @@ module.exports = (
    <Route name="About" path="/about" component={About} />
    <Route name="Login" path="/login" component={Login} onEnter={isUserNotAuth} />
    <Route name="Dashboard" path="/dashboard" component={Dashboard} onEnter={isUserAuth}/>
+   <Route name="NotFound" path="*" component={NotFound} />
   </Route>
 )
 
