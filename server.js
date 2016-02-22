@@ -76,6 +76,17 @@ app.get('/getData', function(req, res) {
 
 app.use('/', routes)
 
+
+
+function safeStringify(object) {
+  // there are tricky rules about safely embedding JSON within HTML
+  return JSON.stringify(object)
+    .replace(/</g, '\\u003c')
+    .replace(/-->/g, '--\\>')
+    .replace(/\u2028/g, '\\u2028')
+    .replace(/\u2029/g, '\\u2029')
+}
+
 app.get('*', function(req, res) {
 
   match({
@@ -97,7 +108,7 @@ app.get('*', function(req, res) {
       var page = ReactDOMServer.renderToString(React.createElement(Root, props, React.createElement(RouterContext, renderProps)))
       res.render('layout', {
         page: page,
-        appTree: 'window._BAOBAB_TREE_=' + JSON.stringify(props)
+        appTree: 'window._BAOBAB_TREE_=' + safeStringify(props)
       })
 
     } else {
