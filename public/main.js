@@ -5,7 +5,7 @@ import 'bootstrap/css/bootstrap.css!'
 import { Router, browserHistory } from 'react-router'
 import routes from './routes.jsx!'
 import { Root } from 'baobab-react/wrappers'
-import state from './state'
+import state from './tree'
 
 var tree = window.tree = state(window._BAOBAB_TREE_.tree)
 

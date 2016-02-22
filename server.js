@@ -17,8 +17,7 @@ var ReactDOMServer = require('react-dom/server')
 var clientRoutes = require('./public/routes.jsx')
 
 var Root = require('baobab-react/wrappers').Root
-var Baobab = require('baobab')
-var Tree = require('./public/state')
+var Tree = require('./public/tree')
 
 var user = {
   id: 1,
