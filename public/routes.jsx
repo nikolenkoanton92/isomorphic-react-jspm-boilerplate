@@ -10,25 +10,29 @@ var Route = Router.Route
 var IndexRoute = Router.IndexRoute
 
 function isUserAuth(nextState, replace) {
-  if (!window.tree.get('user', 'id')) {
-    replace({
-      pathname: '/login',
-      state: {
-        nextPathname: nextState.location.pathname
-      }
-    })
+  if (typeof window !== 'undefined') {
+    if (!window.tree.get('loggedIn')) {
+      replace({
+        pathname: '/login',
+        state: {
+          nextPathname: nextState.location.pathname
+        }
+      })
+    }
   }
 }
 
 
 function isUserNotAuth(nextState, replace) {
-  if (window.tree.get('user', 'id')) {
-    replace({
-      state: {
-        pathname: '/',
-        nextPathname: nextState.location.pathname
-      }
-    })
+  if (typeof window !== 'undefined') {
+    if (window.tree.get('loggedIn')) {
+      replace({
+        state: {
+          pathname: '/',
+          nextPathname: nextState.location.pathname
+        }
+      })
+    }
   }
 }
 
