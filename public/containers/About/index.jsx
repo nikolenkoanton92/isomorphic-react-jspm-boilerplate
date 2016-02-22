@@ -1,10 +1,31 @@
 var React = require('react')
 var mixins = require('baobab-react/mixins')
+var xhr = require('xhr')
 
 module.exports = React.createClass({
   mixins: [mixins.branch],
-  cursors:{
-    title:['title']
+  cursors: {
+    title: ['title']
+  },
+  componentDidMount: function() {
+    this.fetchAboutData()
+  },
+  fetchAboutData: function() {
+    var self = this
+    xhr({
+      method: 'GET',
+      uri: '/about',
+      headers: {
+        'Content-Type': 'application/json'
+      }
+    }, function(err, resp, body) {
+      if (err) {
+        return false
+      } else {
+        var data = JSON.parse(body)
+        self.cursors.title.set(data.title)
+      }
+    })
   },
   render: function() {
     return (
