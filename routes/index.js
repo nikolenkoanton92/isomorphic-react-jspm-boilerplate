@@ -5,7 +5,6 @@ var passport = require('passport')
 require('jsx-hook')()
 
 function isUserNotLogged(req, res, next) {
-  console.log('Come is User Not Logged')
   if (req.user) {
     res.redirect('/dashboard')
   } else {
@@ -14,7 +13,6 @@ function isUserNotLogged(req, res, next) {
 }
 
 function isUserLogged(req, res, next) {
-  console.log('Come is User Logged')
   if (req.user) {
     next()
   } else {
@@ -32,8 +30,6 @@ function renderPage(req, res, next, tree) {
 }
 
 router.get('/', function(req, res, next) {
-  var accept = req.accepts(['html', 'json'])
-
   var tree = {
     title: 'Index Page'
   }
@@ -81,9 +77,11 @@ router.get('/feature', function(req, res, next) {
 })
 
 router.get('/dashboard', isUserLogged, function(req, res, next) {
-
+  var user = req.user
   var tree = {
-    title: 'Dashboard Page'
+    title: 'Dashboard Page',
+    user: user,
+    loggedIn: true
   }
 
   renderPage(req, res, next, tree)
@@ -91,7 +89,6 @@ router.get('/dashboard', isUserLogged, function(req, res, next) {
 
 
 router.get('/login', isUserNotLogged, function(req, res, next) {
-  console.log('Come to login page')
   var tree = {
     title: 'Login Page'
   }
@@ -99,7 +96,9 @@ router.get('/login', isUserNotLogged, function(req, res, next) {
 })
 
 router.post('/login', isUserNotLogged, passport.authenticate('local'), function(req, res) {
-  res.json(req.user)
+  res.json({
+    user: req.user
+  })
 })
 
 router.post('/logout', function(req, res) {

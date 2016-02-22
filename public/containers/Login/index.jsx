@@ -12,8 +12,9 @@ module.exports = React.createClass({
     router: React.PropTypes.object
   },
   actions: {
-    authUser: actions.authUser,
-    changeTitle: actions.changeTitle
+    setUser: actions.setUser,
+    changeTitle: actions.changeTitle,
+    loginUser: actions.loginUser
   },
   getInitialState: function() {
     return {
@@ -33,7 +34,6 @@ module.exports = React.createClass({
         'Content-Type': 'application/json'
       }
     }, function(err, resp, body) {
-      console.log(err)
       if (err) {
         return false
       } else {
@@ -74,7 +74,8 @@ module.exports = React.createClass({
       if (err || body === 'Unauthorized') {
         return false
       } else {
-        self.actions.authUser(body.user)
+        self.actions.setUser(body.user)
+        self.actions.loginUser(true)
         self.context.router.push('/dashboard')
       }
     })
