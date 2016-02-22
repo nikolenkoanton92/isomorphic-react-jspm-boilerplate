@@ -1,7 +1,9 @@
 var React = require('react')
-require('./style.css!')
 
 module.exports = React.createClass({
+  componentDidMount: function() {
+    require('./style.css!')
+  },
   render: function() {
     return (
       <div className="footer">
