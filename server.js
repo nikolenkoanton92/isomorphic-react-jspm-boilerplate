@@ -118,12 +118,10 @@ app.get('*', function(req, res) {
 })
 
 
+var port = process.env.PORT || '3000'
 
-
-
-
-app.listen(4000, function() {
-  console.log('Server listen at *:4000')
+app.listen(port, function() {
+  console.log('Server listen at *:' + port)
 })
 
 
