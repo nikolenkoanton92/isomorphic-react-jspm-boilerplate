@@ -19,7 +19,8 @@ module.exports = React.createClass({
   getInitialState: function() {
     return {
       username: '',
-      password: ''
+      password: '',
+      errorMsg: ''
     }
   },
   componentDidMount: function() {
@@ -42,12 +43,19 @@ module.exports = React.createClass({
       }
     })
   },
+  resetErrorMessage: function() {
+    this.setState({
+      errorMsg: ''
+    })
+  },
   handleUsernameChange: function(event) {
+    this.resetErrorMessage()
     this.setState({
       username: event.target.value
     })
   },
   handlePasswordChange: function(event) {
+    this.resetErrorMessage()
     this.setState({
       password: event.target.value
     })
@@ -72,6 +80,9 @@ module.exports = React.createClass({
       }
     }, function(err, response, body) {
       if (err || body === 'Unauthorized') {
+        self.setState({
+          errorMsg: 'Invalid username or password'
+        })
         return false
       } else {
         self.actions.setUser(body.user)
@@ -82,6 +93,9 @@ module.exports = React.createClass({
 
   },
   render: function() {
+    var displayErrorMsg = {
+      display: this.state.errorMsg ? 'block' : 'none'
+    }
     return (
       <div className="container">
         <div className="row">
@@ -93,14 +107,17 @@ module.exports = React.createClass({
             <div className="panel-body">
               <form onSubmit={this.handleSubmitLogin}>
               <fieldset>
-              <div className="form-group">
+              <div className="form-group has-feedback">
                 <input className="form-control" onChange={this.handleUsernameChange}  type="text" name="username" placeholder="Your username" />
               </div>
-              <div className="form-group">
+              <div className="form-group has-feedback">
                 <input className="form-control" onChange={this.handlePasswordChange} type="password" name="password" placeholder="Your password" />
               </div>
+              <span className="alert alert-danger" style={displayErrorMsg}>{this.state.errorMsg}</span>
               <button className="btn btn-lg btn-success btn-block" type="submit">Login</button>
               </fieldset>
+                <h5>username : hunter33</h5>
+                <h5>password : password1</h5>
               </form>
             </div>
           </div>
