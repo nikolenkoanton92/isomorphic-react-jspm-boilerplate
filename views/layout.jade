@@ -6,9 +6,12 @@ html
   body
     div#main !{page}
     script !{appTree}
-    script(src="jspm_packages/system.js")
-    script(src="config.js")
-    script
-      | System.import("main")
+    if isProduction
+      script(src="app.min.js")
+    else
+      script(src="jspm_packages/system.js")
+      script(src="config.js")
+      script
+        | System.import("main")
 
 

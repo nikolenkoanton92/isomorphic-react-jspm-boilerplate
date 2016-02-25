@@ -34,3 +34,6 @@ node_modules
 .node_repl_history
 
 jspm_packages
+
+# bundle files
+public

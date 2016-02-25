@@ -19,13 +19,17 @@ var clientRoutes = require('./app/routes.jsx')
 var Root = require('baobab-react/wrappers').Root
 var Tree = require('./app/tree')
 
+var PRODUCTION = 'production' === process.env.NODE_ENV
+
 var user = {
   id: 1,
   username: 'hunter33',
   password: 'password1'
 }
 
-app.use(express.static('public'))
+
+
+app.use(express.static(PRODUCTION ? 'dist' : 'app'))
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'jade')
 
@@ -108,7 +112,8 @@ app.get('*', function(req, res) {
       var page = ReactDOMServer.renderToString(React.createElement(Root, props, React.createElement(RouterContext, renderProps)))
       res.render('layout', {
         page: page,
-        appTree: 'window._BAOBAB_TREE_=' + safeStringify(props)
+        appTree: 'window._BAOBAB_TREE_=' + safeStringify(props),
+        isProduction: PRODUCTION
       })
 
     } else {
