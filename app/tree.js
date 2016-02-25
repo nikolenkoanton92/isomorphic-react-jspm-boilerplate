@@ -1,7 +1,5 @@
 var Baobab = require('baobab')
 
-//rename to store
-
 module.exports = function Tree(data) {
   var tree = new Baobab({
     user: {},

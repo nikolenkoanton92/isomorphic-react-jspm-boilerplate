@@ -14,10 +14,10 @@ var Router = require('react-router')
 var match = Router.match
 var RouterContext = Router.RouterContext
 var ReactDOMServer = require('react-dom/server')
-var clientRoutes = require('./public/routes.jsx')
+var clientRoutes = require('./app/routes.jsx')
 
 var Root = require('baobab-react/wrappers').Root
-var Tree = require('./public/tree')
+var Tree = require('./app/tree')
 
 var user = {
   id: 1,

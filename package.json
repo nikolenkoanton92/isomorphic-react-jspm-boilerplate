@@ -38,7 +38,7 @@
   },
   "jspm": {
     "directories": {
-      "baseURL": "public"
+      "baseURL": "app"
     },
     "dependencies": {
       "baobab": "npm:baobab@2.3.3",
