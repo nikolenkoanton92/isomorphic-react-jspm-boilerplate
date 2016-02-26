@@ -34,7 +34,7 @@
     "react": "0.14.6",
     "react-dom": "0.14.6",
     "react-router": "2.0.0",
-    "xhr": "^2.2.0"
+    "xhr": "2.2.0"
   },
   "jspm": {
     "directories": {
@@ -57,5 +57,8 @@
       "clean-css": "npm:clean-css@3.4.9",
       "core-js": "npm:core-js@1.1.4"
     }
+  },
+  "devDependencies": {
+    "jspm": "0.16.30"
   }
 }
