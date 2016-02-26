@@ -29,7 +29,7 @@ var user = {
 
 
 
-app.use(express.static(PRODUCTION ? 'dist' : 'app'))
+app.use(express.static(PRODUCTION ? 'public' : 'app'))
 app.set('views', path.join(__dirname, 'views'))
 app.set('view engine', 'jade')
 
