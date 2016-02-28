@@ -1,4 +1,4 @@
-# Universal(Isomorphic) React JSPM Boilerplace
+# Universal(Isomorphic) React JSPM Boilerplate
 
 With Universal App, JavaScript runs on both the client and server side.
 
@@ -51,9 +51,11 @@ After this you can check public folder with `js` and `css` minified files
 * [Let's create our own router component with React.js](https://enome.github.io/javascript/2014/05/09/lets-create-our-own-router-component-with-react-js.html)
 * [True isomorphic apps with React and Baobab](http://christianalfoni.github.io/javascript/2015/03/01/true-isomorphic-apps-with-react-and-baobab.html)
 
-#### Note
+#### Contributing
 
-This is my personal boilerplate, it may or may not be a good boilerplate, if you have suggestions or suggestions, all forms of contribution are welcome
+This is my personal boilerplate, it may or may not be a good boilerplate.
+PRs, issues, and feature requests welcome!
+
 
 ####  Licence
 
